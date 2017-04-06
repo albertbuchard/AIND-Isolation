@@ -470,12 +470,9 @@ class Project1Test(unittest.TestCase):
                                           loc1=starting_location,
                                           loc2=adversary_location,
                                           w=w, h=h)
-            print(idx, 'ddd', board.root, 'ffff', first_branch)
             # disable search timeout by returning a constant value
             agentUT.time_left = lambda: 1e3
-            print(first_branch, 'frefre')
             _, move = agentUT.alphabeta(board, test_depth)
-            print(move, 'ffdddff', first_branch)
 
             num_explored_valid = board.counts[0] == counts[idx][0]
             num_unique_valid = board.counts[1] == counts[idx][1]
@@ -486,7 +483,6 @@ class Project1Test(unittest.TestCase):
             self.assertTrue(num_unique_valid, UNEXPECTED_VISIT.format(
                 method, test_depth, counts[idx][1], board.counts[1]))
 
-            print(move, 'ffff', first_branch)
             self.assertIn(move, first_branch, WRONG_MOVE.format(
                 method, test_depth, first_branch, move))
 
