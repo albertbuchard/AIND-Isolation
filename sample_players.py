@@ -227,7 +227,7 @@ class HumanPlayer():
 
 if __name__ == "__main__":
     from isolation import Board
-    from game_agent import CustomPlayer, custom_score
+    from game_agent import CustomPlayer, custom_score, custom_score_blanks
 
     # create an isolation board (by default 7x7)
     player1 = CustomPlayer()
@@ -240,7 +240,7 @@ if __name__ == "__main__":
     game.apply_move((2, 3))
     game.apply_move((0, 5))
     print(game.to_string())
-
+    custom_score_blanks(game, player1)
     # players take turns moving on the board, so player1 should be next to move
     assert(player1 == game.active_player)
 
